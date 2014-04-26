@@ -94,16 +94,8 @@ public abstract class AbstractJpaDao<T extends BaseEntity> implements EntityDao<
         return ((Long) q.getSingleResult()).intValue();
     }
 
-    protected T findByUniqueProperty(String namedQuery, String propertyName, Object propertyValue) {
-        return findByUniqueProperties(namedQuery, new Property(propertyName, propertyValue));
-    }
-
-    protected T findByUniqueProperty(String namedQuery, Object propertyValue) {
-        return findByUniqueProperties(namedQuery, propertyValue);
-    }
-
     @SuppressWarnings("unchecked")
-    protected T findByUniqueProperties(String namedQuery, Object... propertyValues) {
+    protected T findByUniqueProperties(String namedQuery, Object[] propertyValues) {
         try {
             return (T) createNamedQuery(namedQuery, propertyValues).getSingleResult();
         } catch (NoResultException e) {
@@ -111,67 +103,31 @@ public abstract class AbstractJpaDao<T extends BaseEntity> implements EntityDao<
         }
     }
 
-    protected T findByUniqueProperties(String namedQuery, Property... properties) {
-        return findByUniqueProperties(namedQuery, (Object[]) properties);
-    }
-
-    protected List<T> findByProperty(String namedQuery, String propertyName, Object propertyValue) {
-        return findByProperties(namedQuery, new Property(propertyName, propertyValue));
-    }
-
-    protected List<T> findByProperty(String namedQuery, String propertyName, int startPosition, int maxResult, Object propertyValue) {
-        return findByProperties(namedQuery, startPosition, maxResult, new Property(propertyName, propertyValue));
-    }
-    
-    protected List<T> findByProperty(String namedQuery, Object propertyValue) {
-        return findByProperties(namedQuery, propertyValue);
-    }
-
-    protected List<T> findByProperty(String namedQuery, int startPosition, int maxResult, Object propertyValue) {
-        return findByProperties(namedQuery, startPosition, maxResult, propertyValue);
-    }
-    
     @SuppressWarnings("unchecked")
-    protected List<T> findByProperties(String namedQuery, Object... propertyValues) {
+    protected List<T> findByProperties(String namedQuery, Object[] propertyValues) {
         return createNamedQuery(namedQuery, propertyValues).getResultList();
     }
     
     @SuppressWarnings("unchecked")
-    protected List<T> findByProperties(String namedQuery, int startPosition, int maxResult, Object... propertyValues) {
+    protected List<T> findByProperties(String namedQuery, int startPosition, int maxResult, Object[] propertyValues) {
         return createNamedQuery(namedQuery, startPosition, maxResult, propertyValues).getResultList();
     }
     
     @SuppressWarnings({ "hiding", "unchecked" })
-	protected <T> List<T> findObjectsByProperties(String namedQuery, int startPosition, int maxResult, Object... propertyValues) {
+	protected <T> List<T> findObjectsByProperties(String namedQuery, int startPosition, int maxResult, Object[] propertyValues) {
         return createNamedQuery(namedQuery, startPosition, maxResult, propertyValues).getResultList();
     }
     
     @SuppressWarnings({ "hiding", "unchecked" })
-	protected <T> List<T> findObjectsByProperties(String namedQuery, Object... propertyValues) {
+	protected <T> List<T> findObjectsByProperties(String namedQuery, Object[] propertyValues) {
         return createNamedQuery(namedQuery, propertyValues).getResultList();
     }
     
-	protected Object findObjectByProperties(String namedQuery, Object... propertyValues) {
+	protected Object findObjectByProperties(String namedQuery, Object[] propertyValues) {
         return createNamedQuery(namedQuery, propertyValues).getSingleResult();
     }
     
-    protected List<T> findByProperties(String namedQuery, Property... properties) {
-        return findByProperties(namedQuery, (Object[]) properties);
-    }
-
-    protected int countByProperty(String namedQuery, String propertyName, Object propertyValue) {
-        return countByProperties(namedQuery, new Property(propertyName, propertyValue));
-    }
-
-    protected int countByProperty(String namedQuery, Object propertyValue) {
-        return countByProperties(namedQuery, propertyValue);
-    }
-
-    protected int countByProperties(String namedQuery, Property... properties) {
-        return countByProperties(namedQuery, (Object[]) properties);
-    }
-
-    protected int countByProperties(String namedQuery, Object... propertyValues) {
+    protected int countByProperties(String namedQuery, Object[] propertyValues) {
         Long count = (Long) createNamedQuery(namedQuery, propertyValues).getSingleResult();
         if(count!=null){
         	return count.intValue();
@@ -181,11 +137,10 @@ public abstract class AbstractJpaDao<T extends BaseEntity> implements EntityDao<
     }
 
     private Query createNamedQuery(String namedQuery, Object... propertyValues) {
-
         return createNamedQuery(namedQuery, -1, -1, propertyValues);
     }
 
-    private Query createNamedQuery(String namedQuery, int startPosition, int maxResult, Object... propertyValues) {
+    private Query createNamedQuery(String namedQuery, int startPosition, int maxResult, Object[] propertyValues) {
         Query query = getEntityManager().createNamedQuery(namedQuery);
         int i = 1;
         for (Object propertyValue : propertyValues) {
@@ -204,7 +159,7 @@ public abstract class AbstractJpaDao<T extends BaseEntity> implements EntityDao<
         return query;
     }
 
-    public int executeUpdate(String namedQuery, Object... propertyValues) {
+    public int executeUpdate(String namedQuery, Object[] propertyValues) {
         Query query = createNamedQuery(namedQuery, -1, -1, propertyValues);
         return query.executeUpdate();
     }
@@ -234,39 +189,32 @@ public abstract class AbstractJpaDao<T extends BaseEntity> implements EntityDao<
  	 *	return getByNativeQuery(TrafficLogLoginNear30.class,queryString, params );
      * 
      */
-    
-   
     @SuppressWarnings({"hiding", "unchecked"})
-    protected <T> List<T> findSqlByProperties(Class<T> persistentClass, String nativeQuery, Object... propertyValues){
-        return createNativeQuery(nativeQuery, propertyValues).getResultList();
-    }
-    
-    @SuppressWarnings({"hiding", "unchecked"})
-    protected <T> List<T> findSqlObjectsByProperties(String nativeQuery, Object... propertyValues){
+    protected <T> List<T> findSqlObjectsByProperties(String nativeQuery, Object[] propertyValues){
     	 return createNativeQuery(nativeQuery, propertyValues).getResultList();
     }
     
     @SuppressWarnings("unchecked")
-    protected List<T> findSqlByProperties(String nativeQuery, int startPosition, int maxResult, Object... propertyValues) {
+    protected List<T> findSqlByProperties(String nativeQuery, int startPosition, int maxResult, Object[] propertyValues) {
         return createNativeQuery(nativeQuery, startPosition, maxResult, propertyValues).getResultList();
     }
     
     @SuppressWarnings({ "hiding", "unchecked" })
-	protected <T> List<T> findSqlObjectsByProperties(String nativeQuery, int startPosition, int maxResult, Object... propertyValues) {
+	protected <T> List<T> findSqlObjectsByProperties(String nativeQuery, int startPosition, int maxResult, Object[] propertyValues) {
         return createNativeQuery(nativeQuery, startPosition, maxResult, propertyValues).getResultList();
     }
     
-    protected int countSqlByProperties(String nativeQuery, Object... propertyValues) {
-    	nativeQuery = "SELECT COUNT(1) FROM ( "+nativeQuery+" ) __temp_table";
+    protected int countSqlByProperties(String nativeQuery, Object[] propertyValues) {
+    	//nativeQuery = "SELECT COUNT(1) FROM ( "+nativeQuery+" ) __temp_table";
     	Object o = createNativeQuery(nativeQuery, propertyValues).getSingleResult();
         return Integer.valueOf(o.toString());
     }
     
-    private Query createNativeQuery(String nativeQuery, Object... propertyValues) {
+    private Query createNativeQuery(String nativeQuery, Object[] propertyValues) {
         return createNativeQuery(nativeQuery, -1, -1, propertyValues);
     }
     
-    private Query createNativeQuery(String nativeQuery, int startPosition, int maxResult, Object... propertyValues) {
+    private Query createNativeQuery(String nativeQuery, int startPosition, int maxResult, Object[] propertyValues) {
         Query query = getEntityManager().createNativeQuery(nativeQuery);
         int i = 1;
         for (Object propertyValue : propertyValues) {
