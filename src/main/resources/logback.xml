@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<substitutionProperty name="log.base" value="target/logs/${HOSTNAME}" />
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!--<appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.base}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.base}.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>1MB</MaxFileSize>
+        </triggeringPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>-->
+	
+	<appender name="mdeskApiRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.base}/${HOSTNAME}_xhrs.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.base}/${HOSTNAME}_xhrs.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+
+	<!-- project default level -->
+	<logger name="cn.com.robusoft.mdesk" level="INFO" />
+	<logger name="cn.com.robusoft.mdesk.listener" level="DEBUG" />	
+	<logger name="org.hibernate.SQL" level="INFO" />
+	<logger name="org.springframework.jdbc" level="INFO" />
+	<logger name="org.springframework" level="WARN" />
+	
+	<!-- 本地开发环境屏蔽警告 -->
+	<logger name="org.springframework.jms.listener" level="ERROR" />
+
+
+	<root level="WARN">
+		<appender-ref ref="console" />
+		<appender-ref ref="mdeskApiRollingFile" />
+	</root>
+</configuration>

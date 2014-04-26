@@ -1,0 +1,74 @@
+/*
+Ning Css Typography
+version: 0.1.2 | 2012.02.13
+
+Copyright (c) 2010,2011, Garning.com. All rights reserved.
+
+Licensed under the BSD License:
+http://creativecommons.org/licenses/BSD/
+
+统一命名规范：
+一，样式类的命名：
+主要块命名：header contents footer
+除了主要块外，所有块类的命名均使用“class”+“_”+“次序”的形式命名，如“.class_1”。
+
+二，样式ID的命名：
+样式的ID命名使用“cssid”+“_”+“次序”的形式命名，如“#cssid_1”，
+
+实际编写样式的过程中尽量避免使用样式ID，如有使用绝对不能出现重复的样式ID，多使用样式类。
+
+三，表单ID的命名：
+使用“formid”+“_”+“次序”的形式命名，如“formid_1”，
+
+实际编写代码的过程中要绝对避免重复表单ID。
+
+2012.03.13
+By Insion
+*/
+/*public start*/
+body{text-align: center; background:#1d99e6 url(../images/feiyoung_center.jpg) top center repeat-y; color:#232c36;font-size:14px;}
+a:link,a:visited{color:#4d6b9f; text-decoration:none;}
+a:hover{color:#4d6b9f; text-decoration:none;}
+h1{font-size:25px;}
+
+.wrapper{width:980px;background:#1d99e6 url(../images/bg980.png) top center no-repeat;}
+/*public end*/
+
+/*header*/
+.logo{margin-left:22px;margin-top:-8px;}
+.navbar{margin-top:50px;margin-bottom:50px;*margin-bottom:20px;_margin-bottom:-2px;clear:both;}
+.navbar a:link,a:visited{color:#ffffff; text-decoration:none;}
+.navbar a:hover{color:#ffffff; text-decoration:none;}
+.navbar ul li{margin-right:20px;}
+.navbar ul li div{color:#ffffff;}
+.navbar .iconsbar{margin-top:43px;}
+
+.freedown{position:absolute;top:350px;left:900px;z-index:3;}
+
+.infobar{position:absolute;top:130px;left:660px;z-index:3;width: 458px;white-space:nowrap;}
+.infobar div {display:inline;white-space:normal;}
+.infobar h1{color:#fa8400;font-weight:bold;font-size:30px;}
+.infobar span{padding-right:25px;line-height:26px;}
+.infobar .snav{float:left; width:458px;}
+.infobar .snav img{padding-left:2px;padding-right:2px;}
+
+
+.logbox{height:200px;display:block;float:left;position:absolute;top:100px;left:660px;z-index:3;text-align:left;padding:10px;}
+.logbox .tabs{font-weight:bold;font-size:18px;display:block;height:30px;width:280px;margin-left:27px;margin-bottom:20px;}
+.logbox .tabs a{padding:10px;background-color:#000000;color:#ffffff;}
+.logbox .tabs a:hover{padding:10px;background-color:#fc9400;}
+.logbox .tabs .current{color:#fff;background-color:#fc9400;}
+.logbox span{padding:5px;}
+.logbox label{padding:5px;}
+.logbox  .item{padding:5px;text-align:left;}
+.logbox  .btn-submit{width:80px;height:36px;line-height:26px;font-size:14px;padding:2px;}
+
+.klink:link,.klink:visited{color:#3b3b3b;text-decoration:none;text-align:center;line-height:24px;background: url(../images/lin.png) center no-repeat;display:inline-block;width:136px;height:36px;padding-top:10px;}
+.klink:hover{color:#3b3b3b;background:url(../images/lhover.png) center no-repeat;}
+
+.footer{min-height:100px;clear: both;background:#2d478f url(../images/ftbg.png) top center repeat-x;padding-top:20px; text-align:center; }
+.footer p{color:#ffffff;font: 14px/1.5 "微软雅黑";}
+.footer span{color:#00c0f6;font: 14px/1.5 "微软雅黑";}
+.footer a:link,a:visited{color:#00c0f6; text-decoration:none;}
+.footer a:hover{color:#ffffff; text-decoration:none;}
+/* main end */

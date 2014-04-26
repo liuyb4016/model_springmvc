@@ -1,0 +1,137 @@
+/*
+Ning Css Typography
+version: 0.1.2 | 2012.02.13
+
+Copyright (c) 2010,2011, Garning.com. All rights reserved.
+
+Licensed under the BSD License:
+http://creativecommons.org/licenses/BSD/
+
+统一命名规范：
+一，样式类的命名：
+主要块命名：header contents footer
+除了主要块外，所有块类的命名均使用“class”+“_”+“次序”的形式命名，如“.class_1”。
+
+二，样式ID的命名：
+样式的ID命名使用“cssid”+“_”+“次序”的形式命名，如“#cssid_1”，
+
+实际编写样式的过程中尽量避免使用样式ID，如有使用绝对不能出现重复的样式ID，多使用样式类。
+
+三，表单ID的命名：
+使用“formid”+“_”+“次序”的形式命名，如“formid_1”，
+
+实际编写代码的过程中要绝对避免重复表单ID。
+
+2012.03.13
+By Insion
+*/
+/*public start*/
+body{ background:#1d99e6 url(../images/feiyoung_center.jpg) top center repeat-y; color:#232c36;font-size:14px;}
+a:link,a:visited{color:#4d6b9f; text-decoration:none;}
+a:hover{color:#4d6b9f; text-decoration:none;}
+h1{font-size:25px;}
+
+.wrapper{width:980px;background-color:#ffffff;overflow:hidden;}
+/*public end*/
+
+/*header*/
+.header{height:130px;background:#1d99e6 url(../images/topbg.png) bottom center no-repeat;}
+.logo2{position:absolute;top:75px;left:750px;z-index:3;}
+
+
+.navbar{margin-top:0px; text-align:center; }
+.navbar a:link,a:visited{color:#ffffff; text-decoration:none;}
+.navbar a:hover{color:#ffffff; text-decoration:none;}
+.navbar ul li{margin-right:20px;}
+.navbar ul li div{color:#ffffff;}
+
+.crtlbar {height:29px;line-height:29px;background:#ffffff url(../images/navl.png) center repeat-x;color:#ace843;width:100%;clear:both;}
+
+.crtlbar  a{color:#ace843;font-size:12px;display:block;height:29px;line-height:29px;}
+
+.crtlbar #n{width:50px;margin-left:5px;}
+.crtlbar a:link,.crtlbar a:visited{color:#ffffff; text-decoration:none;display:block;}
+.crtlbar a:hover{color:#ffffff;text-decoration:none;background:url(../images/lll.png) top center repeat-x;}
+
+.crtlbar  .list .fca{color:#ffffff;}
+.crtlbar .item_view{color:#ffffff;}
+.crtlbar  table{width:100%;}
+
+.shortcuticons{padding:5px;}
+.shortcuticons li{margin-top:25px;margin-left:25px;margin-right:25px;padding:2px;width:118px;height:111px;text-align:center;}
+.shortcuticons li a:link,.shortcuticons li a:visited{color:#4d6b9f; text-decoration:none;}
+.shortcuticons li a:hover{color:#4d6b9f; text-decoration:none;}
+.shortcuticons li img{margin-bottom:10px;}
+
+#mlink:link,#mlink:visited{color:#3b3b3b;text-decoration:none;background: url(../images/lin.png) center no-repeat;display:block;width:136px;height:36px;margin-left:55px;padding-top:10px;margin-bottom:30px;}
+#mlink:hover{color:#3b3b3b;background:url(../images/lhover.png) center no-repeat;}
+
+
+#s{height:18px;font-size:12px;background:#ffffff url(../images/ss.png) center right no-repeat;}
+#sms{width:70px;margin-left:5px;}
+#inbox{width:80px;margin-left:5px;}
+
+.contents  .main .column260  .list{width:100%;color:#000000;font-size:18px;}
+.contents  .main .column260  .list td{padding-bottom:10px;}
+.contents  .main .column260  .list a{color:#000000;font-size:12px;}
+
+.contents  .main .column260  .list .bga{background-color:#cdcdcf;}
+.contents  .main .column720 .bga{background-color:#cdcdcf;}
+.contents  .main .column720 .bgc{background-color:#ffffff;}
+.contents  .main .column720 .list tr{border-bottom:1px solid #eeeeee;}
+.contents  .main .column720 .list input{float:left;margin-top:10px;}
+
+.listd{width:100%;color:#000000;text-align:center;}
+.listd td{padding-left:5px;padding-right:5px;padding-top:6px;padding-bottom:6px;font-size:14px;line-hight:1.3;height:16px;white-space: nowrap;}
+.listd tr{border-bottom:1px solid #eeeeee;}
+.listd .bga{background-color:#cdcdcf;}
+.listd .bgc{background-color:#ffffff;}
+.listd .bgb{background-color:#f1f2f5;}
+
+.listd th {
+	color:#000000;text-align:center;
+	padding-left:5px;padding-right:5px;padding-top:8px;padding-bottom:8px;font-size:14px;line-hight:1.3;height:16px;
+}
+/*
+.listd td:nth-child(odd){background:#ffffff;}
+.listd td:nth-child(even){background:#f1f2f5;}
+.listd th {
+	background-color:#cdcdcf;
+	color:#000000;text-align:center;
+	padding-left:5px;padding-right:5px;padding-top:8px;padding-bottom:8px;font-size:14px;line-hight:1.3;height:16px;
+}
+.listd th:nth-child(odd){background:#cdcdcf;}
+.listd th:nth-child(even){background:#f1f2f5;}
+*/
+
+.cnav{padding-left:300px;margin-top:10px;}
+.cnav a{text-align:center;width:20px;height:20px;background-color:#3399cc;color:#ffffff;display:inline-block;float:left;font-size:12px;margin-left:1px;margin-right:1px;margin-bottom:10px;cursor: pointer;}
+.cnav a:hover{width:20px;height:20px;background-color:#33ccff;color:#ffffff;display:block;float:left;font-size:12px;margin-left:1px;margin-right:1px;margin-bottom:10px; cursor: pointer;}
+.cnav .selectbtn{width:20px;height:20px;background-color:#33ccff;color:#ffffff;display:block;float:left;font-size:12px;margin-left:1px;margin-right:1px;margin-bottom:10px; cursor: pointer;}
+.main{min-height:380px;height:auto;}
+.main .column260{min-height:480px;height:100%;background:#f0f2f6 url(../images/lbg.png) top center repeat-y; text-align:center;}
+
+.main .column720 .list{width:100%;background-color:#ffffff;}
+.main .column720 .list tr{height:36px;background-color:#f1f2f5;}
+.klh{background-color:#ffffff;}
+.klh tr{line-height:39px;}
+.klh tr td{padding:5px;}
+
+.klink:link,.klink:visited{color:#3b3b3b;text-decoration:none;text-align:center;line-height:24px;background: url(../images/lin.png) center no-repeat;display:inline-block;width:136px;height:36px;padding-top:10px;}
+.klink:hover{color:#3b3b3b;background:url(../images/lhover.png) center no-repeat;}
+
+.phone{background:  url(../images/lxr.png) center no-repeat;height:350px;padding-top:70px;}
+.phone_screen{height:240px;width:173px;display:block;margin-left:45px;}
+.phone_screen li{border-bottom:1px solid #cccccc;width:99%;color:#ffffff;margin-top:2px;}
+
+.phone_btn{padding-left:50px;}
+.phone_btn a:link,.phone_btn a:visited{display:block;height:24px;width:24px;float:left;margin:4px;}
+.phone_btn a:hover{display:inline;height:24px;width:24px;background-color:#ffae00;}
+
+
+.footer{min-height:100px;clear: both;background:#2d478f url(../images/ftbg.png) top center repeat-x;padding-top:20px; text-align:center; }
+.footer p{color:#ffffff;font: 14px/1.5 "微软雅黑";}
+.footer span{color:#00c0f6;font: 14px/1.5 "微软雅黑";}
+.footer a:link,a:visited{color:#00c0f6; text-decoration:none;}
+.footer a:hover{color:#ffffff; text-decoration:none;}
+/* main end */

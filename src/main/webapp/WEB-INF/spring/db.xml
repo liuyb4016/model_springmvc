@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd	
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" default-autowire="byName">
+
+	<!-- Scans within the base package of the application for @Components to configure as beans -->
+	
+	<!--     数据库链接分割线         -->
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="acme" />
+		<property name="persistenceProviderClass" value="org.hibernate.ejb.HibernatePersistence"></property>
+		<property name="dataSource"  ref="dataSource" />  
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="false" />
+				<property name="databasePlatform" value="${db.dialect}" />
+			</bean>
+		</property>		
+		<property name="jpaProperties">
+			<props>
+				<!-- <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop> -->
+				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+				<!-- <prop key="org.hibernate.flushMode">COMMIT</prop> -->
+				<!-- second level cache start -->
+				<prop key="hibernate.max_fetch_depth">3</prop>  
+				<prop key="hibernate.jdbc.fetch_size">50</prop>
+				<prop key="hibernate.jdbc.batch_size">30</prop>  
+				
+                <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>  
+                <prop key="hibernate.cache.use_structured_entries">${hibernate.cache.use_structured_entries}</prop>                
+                
+                <prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop> 
+                <prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+                
+                <prop key="hibernate.memcached.memcacheClientFactory">${hibernate.memcached.memcacheClientFactory}</prop>
+                <prop key="hibernate.memcached.servers">${hibernate.memcached.servers}</prop>
+                <prop key="hibernate.memcached.cacheTimeSeconds">${hibernate.memcached.cacheTimeSeconds}</prop>
+                <!-- <prop key="hibernate.memcached.keyStrategy">${hibernate.memcached.keyStrategy}</prop>
+                <prop key="hibernate.memcached.readBufferSize">${hibernate.memcached.readBufferSize}</prop>                
+                <prop key="hibernate.memcached.operationTimeout">${hibernate.memcached.operationTimeout}</prop>
+                <prop key="hibernate.memcached.hashAlgorithm">${hibernate.memcached.hashAlgorithm}</prop>
+                <prop key="hibernate.memcached.commandFactory">${hibernate.memcached.commandFactory}</prop>
+                <prop key="hiberante.memcached.sessionLocator">${hibernate.memcached.sessionLocator}</prop> -->
+                
+				<!-- second level cache end -->
+			</props>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+</beans>

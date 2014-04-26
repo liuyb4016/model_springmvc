@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	 xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/task
+	 	http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<!-- Scans within the base package of the application for @Components to
+		configure as beans -->
+	<context:component-scan base-package="cn.eshore.app" />
+	<context:annotation-config /> 
+    <task:annotation-driven/>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+		<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+			<property name="entityManagerFactory" ref="entityManagerFactory" />
+		</bean>
+	<tx:annotation-driven />
+
+	<mvc:annotation-driven />
+
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+		<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+	<mvc:interceptors>
+		<bean class="cn.eshore.app.web.AuthenticationInterceptor" />
+		<bean class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">
+	    	<property name="entityManagerFactory" ref="entityManagerFactory" />
+	  	</bean>
+	</mvc:interceptors>
+
+	<!-- <bean class ="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
+    	<property name="messageConverters">
+ 		<list>
+   			<ref bean="mappingJacksonHttpMessageConverter" />json转换器
+  		</list>
+		</property>
+	</bean>
+	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" /> -->
+	
+   	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" p:ignoreDefaultModelOnRedirect="true">
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" p:supportedMediaTypes="*/*" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize">
+            <value>52428800</value>
+        </property>
+    </bean>
+    <bean id="pathConfig" class="cn.eshore.app.common.domain.PathConfig">
+		<property name="apprepoPath" value="${pathconfig.apprepopath}" />
+		<property name="fileSyPath" value="${pathconfig.filesypath}" />
+		<property name="sysHttpPath" value="${pathconfig.sysHttpPath}" />
+	</bean>
+</beans>

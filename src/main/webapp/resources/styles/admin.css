@@ -1,0 +1,213 @@
+ul.navigation li{background: url(../images/li1.png) 20px 0 no-repeat; padding-left:60px;}
+
+ul#nav li.one a.heading, a.collapsed, a.expanded, ul.navigation li.selected{
+		background: url(../images/navbg3.png)  right top no-repeat;}
+	
+ul#nav li.one a.expanded {background: url(../images/navbg3.png) right -40px;}
+
+ul#nav li.one a.collapsed:hover {background: url(../images/navbg3.png) no-repeat right -40px; width: 205px;}
+ul#nav li.one a.expanded:hover {background: url(../images/navbg3.png) no-repeat right -120px; width: 205px;}
+
+.search {
+	background-color: #FFF;
+	border: thin solid #BFBFBF;
+	height: 22px;
+	width: 180px;
+	text-align: left;
+	top:3px;
+	display:inline-block;
+	#display:inline;
+	_display:inline;
+}
+
+.search button {
+	width: 20px;
+	height: 20px;
+	background: url(../images/view.png) no-repeat left top;
+	cursor: pointer;
+	border: none;
+}
+
+.search input {
+	border: none;
+	height: 18px;
+	width: 16opx;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+	line-height: 18px;
+	font-weight:normal;
+}
+
+.errormsg {
+	color: red;
+}
+
+#pagego li{
+	display: inline;
+}
+#pagego a{
+	cursor: pointer;
+}
+
+.contentbox th {
+	padding:8px 0px;
+	
+}
+.contentbox td{
+	padding:8px 0px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.contentbox td.function {
+	padding: 0px 0px 0px 0px;
+}
+
+.contentbox select {
+	margin-left: 5px;
+}
+
+.contentbox .app{
+	height:30px;
+	padding:0px 0px 20px 54px;
+	position:relative;
+}
+
+.contentbox .app .appicon{
+	position:absolute;
+	left:0px;
+	_left:-54px; /*for IE6*/
+}
+
+.contentbox .app .appicon img{
+	width: 40px;
+	height: 40px;
+	margin: 4px 4px 4px 4px;
+	cursor: pointer;
+}
+
+.contentbox .app .appicon img:hover{
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+
+.contentboxEmpty {overflow: auto; padding:0px 15px; background: #fff url(../images/bg_fade_med.png) repeat-x top; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; -moz-border-radius-bottomright: 5px; -moz-border-radius-bottomleft: 5px;}	
+.contentboxEmpty label {display: inline-block;}
+
+
+.sms_window{
+	position: relative;
+	width: 500px;
+	height: 300px;
+	overflow-y: auto;
+}
+
+.sms_window .contact{
+	width: 300px;
+	border:#B8D4E8 solid 1px;
+	min-height: 20px;
+}
+
+.sms_window .contact .innerwrap{
+	margin:3px 3px 3px 3px;
+}
+
+.sms_window .contact .innerwrap span{
+	padding-top:2px; 
+	padding-bottom:2px;
+	padding-right:2px;
+	display: inline-block;
+}
+
+.sms_window .contact .innerwrap span span{
+	padding-top:0px; 
+	padding-bottom:0px;
+	padding-right:0px;
+	background: url(../images/token.gif) no-repeat top left;
+}
+
+.sms_window .contact .innerwrap span span span{
+	background: url(../images/token.gif) no-repeat top right;
+}
+
+.sms_window .contact .innerwrap span span span span{
+	background: url(../images/token.gif) no-repeat bottom right;
+}
+
+.sms_window .contact .innerwrap span span span span span{
+	background: url(../images/token.gif) no-repeat bottom left;
+}
+
+.sms_window .contact .innerwrap span span span span span span{
+	background: none;
+	margin:2px 2px 2px 2px;
+}
+
+.sms_window .contact .innerwrap span span span span span span span{
+	background: url(../images/token_x.gif) no-repeat center;
+	width:9px;
+	height:10px; 
+}
+
+.sms_window textarea{
+	width:300px;
+	height:180px; 
+	margin-top:5px;
+	border:#B8D4E8 solid 1px;
+}
+
+.sms_window .rightpanel{
+	position:absolute; 
+	right:0px; 
+	top:0px; 
+	border:#B8D4E8 solid 1px; 
+}
+
+.sms_window .rightpanel .contactHead{
+	background-color: #EFF5FB; 
+	border-top:#B8D4E8 solid 1px;
+	border-bottom:#B8D4E8 solid 1px;
+	text-align: center;
+}
+
+.sms_window .rightpanel .contactPickerSec{
+	width:180px; 
+	height:200px;
+	overflow-y: auto;
+}
+
+.sms_window .rightpanel .contactPager{
+	border-top:#B8D4E8 solid 1px;
+	background-color: #EFF5FB; 
+	line-height: 100%;
+	padding: 3px;
+}
+
+.sms_window .rightpanel .contactPager a{
+	color: #0078B6;
+}
+
+.sms_window .rightpanel .contactPager #pageNum{
+	border:#B8D4E8 solid 1px;
+	background-color: #EFF5FB; 
+	line-height: 100%;
+	width: 30px;
+}
+
+.sms_window .rightpanel .contactPickerSec table{
+	width:100%;
+}
+.sms_window .rightpanel .contactPickerSec table th{
+	background-color: #EFF5FB; 
+	border-top:#B8D4E8 solid 1px;
+	border-bottom:#B8D4E8 solid 1px;
+}
+
+.sms_window .rightpanel .contactPickerSec table td{
+	cursor: pointer;
+}
+
+.sms_window .rightpanel .contactPickerSec table td:hover{
+	background-color: #FFEEC2;
+}
